@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norris Jokes</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <section class="main">
+        <div class="main__container">
+            <div class="main__title-container">
+                <h2 class="main__title">MSI 2020</h2>
+                <div class="main__sidebar-btn_mobile">
+                    <div class="main__sidebar-btn-icon"></div>
+                    Favourite
+                </div>
+            </div>
+            <div class="main__discription">
+                <p>Hey!</p>
+                <p>Let’s try to find a joke for you:</p>
+            </div>
+            <div class="main__search-block search-block">
+                <div class="search-block__random">
+                    <div class="search-block__radio-container">
+                        <input type="radio" name="search-joke" id="search-joke__random" checked>
+                        <label for="search-joke__random"></label>
+                        <label for="search-joke__random" class="search-block__radio-discription">Random</label>
+                    </div>
+                </div>
+                <div class="search-block__category">
+                    <div class="search-block__radio-container">
+                        <input type="radio" name="search-joke" id="search-joke__category">
+                        <label for="search-joke__category"></label>
+                        <label for="search-joke__category" class="search-block__radio-discription">From
+                            caterogies</label>
+                        <div class="search-block__category-items ">
+                        </div>
+                    </div>
+                </div>
+                <div class="search-block__search">
+                    <div class="search-block__radio-container">
+                        <input type="radio" name="search-joke" id="search-joke__search">
+                        <label for="search-joke__search"></label>
+                        <label for="search-joke__search" class="search-block__radio-discription">Search</label>
+                        <input type="text" class="search-block__search-input" id="search-block__search-input"
+                            placeholder="Free text search...">
+                    </div>
+                </div>
+                <div class="search-block__button-get-joke">Get a joke</div>
+            </div>
+            <div class="main__jokes-container">
+            </div>
+        </div>
+    </section>
+    <aside class="sidebar">
+        <div class="sidebar__container">
+            <h2 class="sidebar__title">Favourite</h2>
+            <div class="sidebar__jokes-container">
+            </div>
+        </div>
+        </div>
+    </aside>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

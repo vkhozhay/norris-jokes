@@ -1,0 +1,459 @@
+body {
+    position: relative;
+    display: flex;
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background: #FFFFFF;
+}
+
+.main {
+    width: calc(100% - 480px);
+    height: 100%;
+    min-height: 100vh;
+
+}
+
+.main__container {
+    padding: 40px 140px;
+}
+
+.main__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.main__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.main__discription {
+    margin-bottom: 45px;
+    line-height: 44px;
+}
+
+.main__discription p:first-child {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.main__discription p:last-child {
+    font-size: 24px;
+}
+
+.main__search-block {
+    margin-bottom: 45px;
+}
+
+.search-block__random,
+.search-block__category {
+    margin-bottom: 10px;
+}
+
+.search-block__search {
+    margin-bottom: 25px;
+}
+
+.search-block__radio-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[name="search-joke"]+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ABABAB;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+input[name="search-joke"]+label::before {
+    content: '';
+    display: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333333;
+}
+
+.search-block__category-items {
+    display: none;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px 0;
+}
+
+
+input[name="category-items"]+label {
+    padding: 6px 15px;
+    margin: 10px 10px 0 0;
+    border: 2px solid #F8F8F8;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ABABAB;
+    cursor: pointer;
+}
+
+.search-block__search-input {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 15px;
+    width: 100%;
+    border: 2px solid #333333;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    outline: none;
+}
+
+.search-block__search-input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ABABAB;
+}
+
+input[name="search-joke"]:checked+label {
+    border-color: #333333;
+}
+
+input[name="search-joke"]:checked+label::before {
+    display: block;
+}
+
+input[name="category-items"]:checked+label {
+    color: #333333;
+    background: #F8F8F8;
+}
+
+#search-joke__category:checked~.search-block__category-items {
+    display: flex;
+}
+
+#search-joke__search:checked~.search-block__search-input {
+    display: block;
+}
+
+.search-block__radio-discription {
+    margin-left: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.search-block__button-get-joke {
+    display: inline;
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    background: linear-gradient(92.01deg, #8EA7FF 0%, #7291FF 100%);
+    cursor: pointer;
+}
+
+.search-block__button-get-joke:active {
+    filter: saturate(250%);
+}
+
+.main__jokes-container .joke:first-child {
+    margin-top: 0;
+}
+
+.jokes-container_empty {
+    font-size: 20px;
+}
+
+.joke {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 40px 40px 100px;
+    margin-top: 20px;
+    border-radius: 20px;
+    background: #F8F8F8;
+}
+
+.joke__id::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url('../img/message.svg') center/auto no-repeat, #FFFFFF;
+}
+
+.joke__button-like {
+    width: 20px;
+    height: 17px;
+    margin-bottom: 10px;
+    align-self: flex-end;
+    background: url('../img/like-icon.svg') center/auto no-repeat;
+    cursor: pointer;
+}
+
+.joke__button-like_active {
+    background: url('../img/like-active-icon.svg') center/auto no-repeat;
+}
+
+.joke__id {
+    position: relative;
+    display: flex;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ABABAB;
+}
+
+.joke__id-link {
+    display: flex;
+    align-items: center;
+    margin-left: 2px;
+    color: #8EA7FF;
+}
+
+.joke__id-link::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    background: url('../img/link-icon.svg') center/contain no-repeat;
+}
+
+.joke__content {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 26px;
+    word-wrap: break-word;
+    color: #333333;
+}
+
+.joke__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.joke__update {
+    display: flex;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ABABAB;
+}
+
+.joke__update p {
+    margin-left: 2px;
+    font-weight: 500;
+}
+
+.joke__category {
+    padding: 6px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #333333;
+    background: #FFFFFF;
+}
+
+
+
+.sidebar {
+    width: 480px;
+    min-width: 480px;
+    min-height: 100vh;
+    background: #F8F8F8;
+}
+
+.sidebar__container {
+    padding: 40px;
+}
+
+.sidebar__title,
+.main__sidebar-btn_mobile {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ABABAB;
+}
+
+.main__sidebar-btn_mobile {
+    display: none;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+}
+
+.main__sidebar-btn-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: #333333;
+}
+
+.main__sidebar-btn-icon::before,
+.main__sidebar-btn-icon::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 2px;
+    background: #FFFFFF;
+    border-radius: 2px;
+    transition: transform .5s, margin-bottom .5s;
+}
+
+.main__sidebar-btn-icon::before {
+    margin-bottom: 4px;
+}
+
+.main__sidebar-btn-icon_active::before {
+    margin-bottom: -2px;
+    transform: rotate(45deg);
+}
+
+.main__sidebar-btn-icon_active::after {
+    transform: rotate(-45deg);
+}
+
+.sidebar-joke {
+    padding: 20px 20px 20px 80px;
+    border: 1px solid #F8F8F8;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #FFFFFF;
+}
+
+.sidebar-joke__id::before {
+    background: url('../img/message.svg') center/auto no-repeat, #F8F8F8;
+}
+
+.sidebar-joke__content {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.sidebar-joke__category {
+    background-color: #F8F8F8;
+}
+
+@media (max-width: 1170px) {
+    .main__container {
+        padding: 40px;
+    }
+}
+
+
+@media (max-width:1024px) {
+    .main {
+        width: 100%;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: auto;
+        min-height: 100%;
+        transform: translateX(100%);
+        transition: transform .5s;
+    }
+
+    .sidebar_active {
+        position: absolute;
+        transform: translateX(0);
+    }
+
+    .main_sidebar-active {
+        position: relative;
+    }
+
+    .main_sidebar-active::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .main__sidebar-btn_mobile {
+        position: relative;
+        z-index: 9999;
+        display: flex;
+    }
+
+
+
+    .sidebar__title {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .main__container {
+        padding: 20px;
+    }
+
+    .joke {
+        padding: 20px 20px 20px 80px;
+    }
+
+    .joke__info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .joke__category {
+        margin-top: 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+
+    }
+
+    .sidebar__container {
+        padding: 20px;
+    }
+
+}
